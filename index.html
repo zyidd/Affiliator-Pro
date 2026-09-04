@@ -658,12 +658,14 @@ Format JSON persis:
       navigateTab("voStudio");
     }
 
-    function copyAllPrompts() {
+        function copyAllPrompts() {
       if (!generatedData) return;
       const angleKey = `angle${currentAngle}`;
-      const fullPrompts = generatedData[angleKey].prompts.map(p => `Scene ${p.scene}: ${p.prompt}`).join("
+      const fullPrompts = generatedData[angleKey].prompts.map(p => "Scene " + p.scene + ": " + p.prompt).join("\n\n");
+      navigator.clipboard.writeText(fullPrompts);
+      alert("Semua prompt video berhasil disalin!");
+    }
 
-");
       navigator.clipboard.writeText(fullPrompts);
       alert("Semua prompt video berhasil disalin!");
     }
